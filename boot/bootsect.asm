@@ -1,4 +1,3 @@
-
 [org 0x7c00]
 KERNEL_OFFSET equ 0x1000 
 
@@ -8,9 +7,7 @@ KERNEL_OFFSET equ 0x1000
     call load_kernel 
     call switch_to_pm 
     jmp $ 
-
 %include "boot/print.asm"
-%include "boot/print_hex.asm"
 %include "boot/disk.asm"
 %include "boot/gdt.asm"
 %include "boot/32bit_print.asm"
@@ -30,7 +27,6 @@ BEGIN_PM:
 
     call KERNEL_OFFSET 
     jmp $ 
-
 
 BOOT_DRIVE db 0 
 
