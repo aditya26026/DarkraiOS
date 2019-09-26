@@ -13,25 +13,25 @@ void clear_screen()
 	}
 }
 
-unsigned int printf(char *message, unsigned int line)
+unsigned int printf(char *msg, unsigned int line)
 {
 	char *vga = (char *)0xb8000;
 	unsigned int i = 0;
 
 	i = (line * 80 * 2);
 
-	while (*message != 0)
+	while (*msg != 0)
 	{
-		if (*message == '\n') 
+		if (*msg == '\n') 
 		{
 			line++;
 			i = (line * 80 * 2);
-			*message++;
+			*msg++;
 		}
 		else
 		{
-			vga[i] = *message;
-			*message++;
+			vga[i] = *msg;
+			*msg++;
 			i++;
 			vga[i] = COLOR;
 			i++;
