@@ -1,7 +1,6 @@
-/* This will force us to create a kernel entry function instead of jumping to kernel.c:0x00 */
 #define COLOR 0x8c
 
-void clear_screen() // clear the entire text screen
+void clear_screen() 
 {
 	char *vga = (char *)0xb8000;
 	unsigned int i = 0;
@@ -14,7 +13,7 @@ void clear_screen() // clear the entire text screen
 	}
 }
 
-unsigned int printf(char *message, unsigned int line) // the message and then the line #
+unsigned int printf(char *message, unsigned int line)
 {
 	char *vga = (char *)0xb8000;
 	unsigned int i = 0;
@@ -42,7 +41,7 @@ unsigned int printf(char *message, unsigned int line) // the message and then th
 	return (1);
 }
 
-void main() // like main in a normal C program
+void main()
 {
 	clear_screen();
 	printf("Hi!\n This is our Kernel\n", 0);
